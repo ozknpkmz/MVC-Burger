@@ -1,0 +1,30 @@
+﻿@using HamburgerMVC.Models.ViewModels;
+@model ExtraIngredientVM
+
+@{
+    Layout = "_AdminLayout";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ExtraIngredientEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ExtraIngredient.ExtraIngredientName" class="control-label">ExtraIngredient Name</label>
+                <input asp-for="ExtraIngredient.ExtraIngredientName" class="form-control" />
+                <span asp-validation-for="ExtraIngredient.ExtraIngredientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExtraIngredient.ExtraIngredientPrice" class="control-label">ExtraIngredient Price</label>
+                <input asp-for="ExtraIngredient.ExtraIngredientPrice" class="form-control" />
+                <span asp-validation-for="ExtraIngredient.ExtraIngredientPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ExtraIngredientList">Back to ExtraIngredient List</a>
+</div>

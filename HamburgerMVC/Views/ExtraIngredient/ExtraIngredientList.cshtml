@@ -1,0 +1,50 @@
+﻿@using HamburgerMVC.Models.ViewModels;
+@model ExtraIngredientVM
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<br />
+@*<div>
+    <a asp-action="MenuList" asp-controller="Menu" class="btn btn-secondary btn-rounded">Menu List</a>
+</div>*@
+<br />
+
+<table class="table table-hover table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(x => x.ExtraIngredient.ExtraIngredientName)</th>
+            <th>@Html.DisplayNameFor(x => x.ExtraIngredient.ExtraIngredientPrice)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.eList)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => item.ExtraIngredientName)</td>
+                <td>@Html.DisplayFor(x => item.ExtraIngredientPrice)</td>
+                <td class="align-middle text-center">
+                    <div class="btn-group d-flex justify-content-center">
+                        <a asp-action="ExtraIngredientEdit" asp-controller="ExtraIngredient" asp-route-id="@item.ExtraIngredientId" class="btn btn-primary w-100  btn-rounded">Edit</a>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div class="btn-group d-flex justify-content-center">
+                        <a asp-action="ExtraIngredientDelete" asp-controller="ExtraIngredient" asp-route-id="@item.ExtraIngredientId" class="btn btn-danger w-100  btn-rounded">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div>
+    <a asp-action="ExtraIngredientAdd" class="btn btn-outline-primary">Add New Ingredient</a>
+</div>
+
+
+
+

@@ -1,0 +1,46 @@
+﻿@using HamburgerMVC.Models.ViewModels;
+@model MenuVM
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<br />
+@*<div>
+    <a asp-action="ExtraIngredientList" asp-controller="ExtraIngredient" class="btn btn-secondary btn-rounded">ExtraIngredient List</a>
+</div>*@
+<br />
+
+<table class="table table-hover table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(x => x.Menu.MenuName)</th>
+            <th>@Html.DisplayNameFor(x => x.Menu.MenuPrice)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.mList)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => item.MenuName)</td>
+                <td>@Html.DisplayFor(x => item.MenuPrice)</td>
+                <td class="align-middle text-center">
+                    <div class="btn-group d-flex justify-content-center">
+                        <a asp-action="MenuEdit" asp-controller="Menu" asp-route-id="@item.MenuId" class="btn btn-primary w-100  btn-rounded">Edit</a>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div class="btn-group d-flex justify-content-center">
+                        <a asp-action="MenuDelete" asp-controller="Menu" asp-route-id="@item.MenuId" class="btn btn-danger w-100  btn-rounded">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div>
+    <a asp-action="MenuAdd" class="btn btn-outline-primary">Add New Menu</a>
+</div>

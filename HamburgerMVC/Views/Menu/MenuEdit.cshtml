@@ -1,0 +1,30 @@
+﻿@using HamburgerMVC.Models.ViewModels;
+@model MenuVM
+
+@{
+    Layout = "_AdminLayout";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MenuEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Menu.MenuName" class="control-label">Menu Name</label>
+                <input asp-for="Menu.MenuName" class="form-control" />
+                <span asp-validation-for="Menu.MenuName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Menu.MenuPrice" class="control-label">Menu Price</label>
+                <input asp-for="Menu.MenuPrice" class="form-control" />
+                <span asp-validation-for="Menu.MenuPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="MenuList">Back to Menu List</a>
+</div>

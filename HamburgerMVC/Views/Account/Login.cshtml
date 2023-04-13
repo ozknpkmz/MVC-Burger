@@ -1,0 +1,119 @@
+﻿@{
+    Layout = null;
+}
+@model Login
+
+<head>
+    <title>Doe Brothers Burger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/login-form-20/css/style.css">
+
+</head>
+<body class="img js-fullheight" style="background-image: url(/login-form-20/images/1312732.jpg);">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Doe Brothers Burger</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Have an account?</h3>
+
+
+
+
+
+
+                        <form asp-action="Login" class="signin-form" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="ReturnUrl" class="form-control" />
+                            <div class="form-group">
+                                <input asp-for="Email" class="form-control" placeholder="Email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="Password" type="password" id="password-field" class="form-control" placeholder="Password" />
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <a asp-action="Register" asp-controller="Account">Register as a new user</a>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <a class="small" asp-action="ForgotPassword" asp-controller="Account">Forgot Password?</a>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/login-form-20/js/jquery.min.js"></script>
+    <script src="/login-form-20/js/popper.js"></script>
+    <script src="/login-form-20/js/bootstrap.min.js"></script>
+    <script src="/login-form-20/js/main.js"></script>
+
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+@*
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="Login" method="post">
+            <h2>Login</h2>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReturnUrl" class="form-control"/>
+            <div class="form-floating">
+                <input asp-for="Email" class="form-control" />
+                <label asp-for="Email" class="form-label"></label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Password" type="password" class="form-control" />
+                <label asp-for="Password" class="form-label"></label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div>
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+            </div>
+            <div class="text-center mt-3">
+                <a asp-action="Register" asp-controller="Account">Register as a new user</a>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}*@
